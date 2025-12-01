@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif; /* Hace que se vea más moderno que la fuente por defecto */
+    display: flex;
+    color: #333;
+}
+
+.vista-login{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5;
+}
+
+#login{
+    width: 350px;
+}
+
+label{
+    display: block;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.btn-primario, .btn-secundario{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.btn-primario{
+    background-color: darkblue;
+    color: white;
+}
+
+.btn-secundario{
+    background-color: lightgray;
+    color: black;
+}
+
+.btn-primario:hover, .btn-secundario:hover{
+    cursor: pointer;
+}
+
+.btn-primario:hover{
+    background-color: cornflowerblue;
+}
+
+.btn-secundario:hover{
+    background-color: gray;
+}
+
+#panel-lateral{
+    background-color: darkblue;
+    color: white;
+    width: 250px;
+    height: 100vh;
+    margin-left: 0;
+}
+
+h2{
+    margin-left: 10px;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+li{
+    margin-left: 20px;
+}
+
+a{
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+    font-size: 20px;
+}
+
+a:hover{
+    background-color: cornflowerblue
+}
+
+#contenido-principal{
+    background-color: #f4f4f4;
+    padding: 20px;
+    flex: 1;
+}
+
+/*contenedor de tarjetas*/
+#tarjetas {
+    display: flex;
+    flex: 1;
+}
+
+.tarjeta-tickets, .tarjeta{
+    background-color: white;
+    padding: 30px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.tarjeta-tickets{
+    flex: 1;
+    padding: 20px;
+}
+
+.numero-tickets{
+    font-size: 50px;
+    font-weight: bold;
+    color: darkblue;
+    text-align: center;
+}
+
+#form-busqueda{
+    display: flex;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+#barra-busqueda{
+    margin-bottom: 0;
+    width: 50%
+}
+
+#form-busqueda button{
+    margin-top: 0;
+    width: 12%;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th{
+    background-color: darkblue;
+    color: white;
+    text-align: left;
+}
+
+#crear-ticket{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.campo-form{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+}
+
+#numero-ticket{
+    width: 100px;
+}
+
+#estado{
+    width: 170px;
+}
+
+.acciones{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.acciones button{
+    width: auto; /*auto ocupa solo el ancho del texto*/
+    margin-left: 10px;
+}
+
+#datos-ticket{
+    margin-bottom: 10px;
+}
+
+#historial h3 {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.evento {
+    background-color: white;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    /* Aquí está la magia: una línea gruesa a la izquierda */
+    border-left: 5px solid darkblue; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* 3. Datos meta (Quién y Cuándo) */
+.evento-header {
+    display: flex;
+    justify-content: space-between; /* Uno a cada extremo */
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #777;
+}
+
+.evento-header .autor {
+    font-weight: bold;
+    color: darkblue;
+}
+
+/* 4. Separación extra para el formulario de nuevo avance */
+.nuevo-avance {
+    margin-top: 40px;
+}
+
+td a{
+    padding: 5px;
+    text-decoration: none;
+    color: darkblue;
+    font-weight: bold;
+    transition: 0.3s;
+    font-size: 16px;
+    text-align: center;
+}
+
