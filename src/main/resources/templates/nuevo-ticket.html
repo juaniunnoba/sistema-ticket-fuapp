@@ -11,24 +11,25 @@
     <div id="contenido-principal">
         <div id="crear-ticket" class="tarjeta">
             <h3>Nuevo Ticket</h3>
-            <form  th:action="@{/crear-ticket}" method="post">
+            <form  th:action="@{/crear-ticket}" th:object="${ticket}" method="post">
                 <label for="cliente">Cliente:</label>
                 <input id="cliente" class="campo-form" type="text" required>
                 <label for="asunto">Asunto:</label>
-                <input id="asunto" class="campo-form" type="text" required>
+                <input th:field="*{asunto}" id="asunto" class="campo-form" type="text" required>
                 <label for="descripcion">Descripción:</label>
-                <textarea id="descripcion" class="campo-form" rows="5" required></textarea>
+                <textarea th:field="*{observaciones}" id="observaciones" class="campo-form" rows="5" optional></textarea>
                 <label for="prioridad">Prioridad:</label>
-                <select id="prioridad" class="campo-form" required>
-                    <option value="baja">Baja</option>
-                    <option value="media">Media</option>
-                    <option value="alta">Alta</option>
+                <select th:field="*{prioridad}" id="prioridad" class="campo-form" required>
+                    <option value="BAJA">Baja</option>
+                    <option value="MEDIA">Media</option>
+                    <option value="ALTA">Alta</option>
                 </select>
                 <label for="categoria">Categoría:</label>
-                <select id="categoria" class="campo-form" required>
-                    <option value="hardware">Hardware</option>
-                    <option value="software">Software</option>
-                    <option value="red">Red</option>
+                <select th:field="*{categoria}" id="categoria" class="campo-form" required>
+                    <option value="HARDWARE">Hardware</option>
+                    <option value="SOFTWARE">Software</option>
+                    <option value="RED">Red</option>
+                    <option value="CAMARAS">Cámaras</option>
                 </select>
                 <div class="acciones">
                     <button type="reset" class="btn-secundario">Borrar</button>    

@@ -7,18 +7,31 @@ import com.juan.sistema_ticket.enums.CategoriaEnum;
 import com.juan.sistema_ticket.enums.EstadoEnum;
 import com.juan.sistema_ticket.enums.RolEnum;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@Entity
 public class Usuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String mail;
-    private String apellido;
     private String nombre;
     private String telefono;
+    @Enumerated(EnumType.STRING)
     private RolEnum rol;
+    //un usuario puede generar muchos tickets.
+    //luego se le dice cual va a ser la cf en la tabla tickets
+    @OneToMany (mappedBy = "tecnicoAsignado")
     private List<Ticket> tickets;
 
     public Usuario (){
