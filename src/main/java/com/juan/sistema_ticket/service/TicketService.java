@@ -25,6 +25,10 @@ public class TicketService {
         return ticketRepository.findById(id).orElse(null);
     }
 
+    public List<Ticket> obtenerPorNombreCliente (String nombreCliente){
+        return ticketRepository.findByClienteNombreIgnoreCase(nombreCliente);
+    }
+
     // --- MÉTODOS DE ESCRITURA ---
 
     public void guardarTicket(Ticket ticket) {

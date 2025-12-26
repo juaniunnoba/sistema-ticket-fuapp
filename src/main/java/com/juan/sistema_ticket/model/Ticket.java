@@ -26,8 +26,7 @@ public class Ticket {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
-
-    //a un cliente se le pueden cargar varios tickets
+  //a un cliente se le pueden cargar varios tickets
     @ManyToOne
     private Usuario cliente;
     //muchos tickets pertenencen a un técnico

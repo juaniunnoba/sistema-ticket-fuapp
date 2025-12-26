@@ -22,4 +22,6 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
 
     // 4. (Opcional) Combinar filtros: Tickets de un técnico que estén abiertos
     List<Ticket> findByTecnicoAsignadoAndAbierto(Usuario tecnico, boolean abiertoCerrado);
+
+    List<Ticket> findByClienteNombreIgnoreCase(String palabraClave);
 }

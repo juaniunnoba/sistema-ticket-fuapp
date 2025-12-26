@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>nuevo-cliente</title>
+</head>
+<body>
+    <div th:replace="fragmentos :: panel-lateral"></div>
+    <div id="contenido-principal">
+        <div id="crear-cliente" class="tarjeta">
+            <h3>Nuevo Cliente</h3>
+            <form th:action="@{/guardar-cliente}" th:object="${cliente}" method="post">
+                <label for="nombre">Nombre:</label>
+                <input th:field="*{nombre}" id="nombre" class="campo-form" type="text" required>
+                <label for="telefono">Teléfono:</label>
+                <input th:field="*{telefono}" id="telefono" class="campo-form" type="text" required>
+                <label for="mail">Mail:</label>
+                <input th:field="*{mail}" id="mail" class="campo-form" type="email" required>
+                <label for="direccion">Dirección:</label>
+                <input th:field="*{direccion}" id="direccion" class="campo-form" type="text" optional>
+               
+                <div class="acciones">
+                    <button type="reset" class="btn-secundario">Borrar</button>    
+                    <button type="submit" class="btn-primario">Guardar Cliente</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

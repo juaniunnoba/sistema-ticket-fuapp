@@ -27,12 +27,16 @@ public class Usuario {
     private String mail;
     private String nombre;
     private String telefono;
+    private String direccion;
     @Enumerated(EnumType.STRING)
     private RolEnum rol;
     //un usuario puede generar muchos tickets.
     //luego se le dice cual va a ser la cf en la tabla tickets
     @OneToMany (mappedBy = "tecnicoAsignado")
     private List<Ticket> tickets;
+    //un usuario puede ser tecnico pero tambien cliente y tendra varios tickets como cliente.
+    @OneToMany (mappedBy = "cliente")
+    private List<Ticket> ticketsCliente;
 
     public Usuario (){
         tickets = new ArrayList <Ticket> ();

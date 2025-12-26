@@ -160,7 +160,7 @@ th{
     text-align: left;
 }
 
-#crear-ticket{
+#crear-ticket, #crear-cliente{
     max-width: 600px;
     margin: 0 auto;
 }

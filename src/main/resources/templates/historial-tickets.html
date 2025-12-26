@@ -6,44 +6,47 @@
     <link rel="stylesheet" href="estilos.css">
     <title>historial de tickets</title>
 </head>
+
 <body>
     <div th:replace="fragmentos :: panel-lateral"></div>
     <div id="contenido-principal">
-        <form id="form-busqueda" action="#" method="get">
-            <input id="barra-busqueda" class="campo-form" type="text" placeholder="Buscar por #ticket, cliente ...">
+        <form id="form-busqueda" th:action="@{/tickets-pendientes}" method="get">
+            <input name="palabraClave" id="barra-busqueda" class="campo-form" type="text" placeholder="Buscar por #ticket, cliente ...">
             <button type="submit" class="btn-primario">Buscar</button>
         </form>
-
-        <div id="info-ticket">
-            <h2>Asunto</h2>
-            <p id="descripcion-ticket"></p>
-            <div id="datos-ticket">
-                <span>Cliente</span>
-                <span>Fecha</span>
-                <span>Estado</span>
-                <span>Prioridad</span>
-                <span>Categoría</span>
+        <div class="ticket-contenedor" th:each="ticket : ${tickets}">
+            <div id="info-ticket">
+                <h2>Asunto</h2>
+                <p id="descripcion-ticket"></p>
+                <div id="datos-ticket">
+                    <span th:text="${ticket.cliente?.nombre}">Cliente</span>
+                    <span>Fecha</span>
+                    <span>Estado</span>
+                    <span>Prioridad</span>
+                    <span>Categoría</span>
+                </div>
             </div>
-        </div>
-        <div id="historial">
-            <div class="lista-eventos">
-        
-        <div class="evento">
-            <div class="evento-header">
-                <span class="autor">Técnico (Juan)</span>
-                <span class="fecha">30/11/2025 - 09:30 hs</span>
+            <div id="historial">
+                <div class="lista-eventos"> 
+                    <div class="evento">
+                        <div class="evento-header">
+                            <span class="autor">Técnico (Juan)</span>
+                            <span class="fecha">30/11/2025 - 09:30 hs</span>
+                        </div>
+                        <p class="mensaje">Se recibió el equipo y se verificó la falla. No enciende.</p>
+                    </div>
+                    <div class="evento">
+                        <div class="evento-header">
+                            <span class="tecnico-asignado">Técnico (Juan)</span>
+                            <span class="fecha">30/11/2025 - 10:15 hs</span>
+                        </div>
+                        <p class="mensaje">Se solicitó presupuesto de fuente nueva al proveedor.</p>
+                    </div>
+                    <p class="mensaje">Se solicitó presupuesto de fuente nueva al proveedor.</p>
+                </div>
             </div>
-            <p class="mensaje">Se recibió el equipo y se verificó la falla. No enciende.</p>
-        </div>
-
-        <div class="evento">
-            <div class="evento-header">
-                <span class="tecnico-asignado">Técnico (Juan)</span>
-                <span class="fecha">30/11/2025 - 10:15 hs</span>
-            </div>
-            <p class="mensaje">Se solicitó presupuesto de fuente nueva al proveedor.</p>
-        </div>
+        </div>    
     </div>
-
 </body>
 </html>
+
