@@ -20,6 +20,10 @@ public class TicketService {
         return ticketRepository.findAll();
     }
 
+    public List<Ticket> listarAbiertos(){
+        return ticketRepository.findByAbiertoTrue();
+    }
+
     public Ticket obtenerPorId(Long id) {
         // findById devuelve un "Optional". Si no lo encuentra, devolvemos null
         return ticketRepository.findById(id).orElse(null);

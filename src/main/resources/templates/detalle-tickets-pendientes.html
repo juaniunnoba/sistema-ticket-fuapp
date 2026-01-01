@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>tickets pendientes</title>
+</head>
+
+<body>
+    <div th:replace="fragmentos :: panel-lateral"></div>
+    <div id="contenido-principal">
+        <form id="form-busqueda" th:action="@{/filtro-ticket-pendiente}" method="get">
+            <input name="palabraClave" id="barra-busqueda" class="campo-form" type="text" placeholder="Buscar por #ticket, cliente ...">
+            <button type="submit" class="btn-primario">Buscar</button>
+        </form>
+        <div class="ticket-contenedor" th:each="ticket : ${ticketsPendientes}">
+            <div id="info-ticket">
+                <h2 th:text="${ticket.asunto}">Asunto</h2>
+
+                <div id="datos-ticket">
+                    <!-- <span th:text="${ticket.cliente.nombre}">Cliente</span> -->
+                    <span th:text="${ticket.fechaApertura}">Fecha</span>
+                    <span th:text="${ticket.prioridad}">Prioridad</span>
+                    <span th:text="${ticket.categoria}">Categoría</span>
+                </div>
+            </div>
+        </div>    
+    </div>
+</body>
+</html>
+

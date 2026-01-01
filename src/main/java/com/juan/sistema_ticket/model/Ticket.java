@@ -13,6 +13,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
@@ -28,6 +29,7 @@ public class Ticket {
     private Long id;
   //a un cliente se le pueden cargar varios tickets
     @ManyToOne
+    //@JoinColumn(name = "id", nullable = false)
     private Usuario cliente;
     //muchos tickets pertenencen a un técnico
     @ManyToOne

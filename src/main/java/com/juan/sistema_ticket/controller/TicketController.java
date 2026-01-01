@@ -26,9 +26,10 @@ public class TicketController {
         return "nuevo-ticket";
     }
 
-    @GetMapping ("/detalle-ticket")
-    public String detalleTicket (){
-        return "detalle-ticket-pendiente";
+    @GetMapping ("/detalle-tickets-pendientes")
+    public String detalleTicket (Model model){
+        model.addAttribute("ticketsPendientes", ticketService.listarAbiertos());
+        return "detalle-tickets-pendientes";
     }
 
     @GetMapping ("/historial-tickets")
@@ -36,8 +37,8 @@ public class TicketController {
         return "historial-tickets";
     }
 
-  @GetMapping("/tickets-pendientes")
-    public String ticketsPendientes(@RequestParam String palabraClave, Model model) {
+  @GetMapping("/filtro-ticket-pendiente")
+    public String ticketsPendientesCliente(@RequestParam String palabraClave, Model model) {
     // 1. Preparamos una lista vacía por defecto
     List<Ticket> resultados = new ArrayList<>();
 

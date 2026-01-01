@@ -17,8 +17,8 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
     // 1. Buscar tickets asignados a un técnico específico
     List<Ticket> findByTecnicoAsignado(Usuario tecnico);
 
-    // 3. Buscar solo los tickets que están abiertos (true) o cerrados (false)
-    List<Ticket> findByAbierto(boolean estado);
+    // 3. Buscar solo los tickets que están abiertos.
+    List<Ticket> findByAbiertoTrue();
 
     // 4. (Opcional) Combinar filtros: Tickets de un técnico que estén abiertos
     List<Ticket> findByTecnicoAsignadoAndAbierto(Usuario tecnico, boolean abiertoCerrado);

@@ -35,43 +35,23 @@
                     <tr>
                         <th>ID</th>
                         <th>Cliente</th>
-                        <th>Asunto</th>
-                        <th>Estado</th> 
+                        <th>Asunto</th> 
                         <th>Prioridad</th>
                         <th>Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Asociación Médica de Salto</td>
-                        <td>Agregar impresora a la red</td>
-                        <td>Nuevo</td>
-                        <td>Media</td>
-                        <td> 
-                            <a th:href="@{/detalle-ticket}">Ver</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Ferias del Norte</td>
-                        <td>Configurar cuenta de correo en PC de Delfina</td>
-                        <td>Nuevo</td>
-                        <td>Alta</td>
-                        <td> 
-                            <a th:href="@{/detalle-ticket}">Ver</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Ferias del Norte</td>
-                        <td>Problemas con cámaras de planta</td>
-                        <td>Nuevo</td>
-                        <td>Alta</td>
-                        <td> 
-                            <a th:href="@{/detalle-ticket}">Ver</a>
-                        </td>
-                    </tr>
+                    <a th:href="@{/detalle-ticket}">
+                        <tr th:each="ticket: ${ticketsPendientes}">
+                            <td th:text="${ticket.id}"></td>
+                            <td th:text="${ticket.cliente}"></td>
+                            <td th:text="${ticket.asunto}"></td>
+                            <td th:text="${ticket.prioridad}"></td>
+                            <td> 
+                                <a th:href="@{/detalle-ticket}">Ver</a>
+                            </td>
+                        </tr>
+                    </a>
                 </tbody>
             </table>
         </div>
