@@ -66,6 +66,9 @@ public class TicketController {
     //@ModelAttribute nos dice que el metodo recibe el objeto Ticket ya relleno con los datos que el usuario ingreso en los inputs.
     public String crearTicket (@ModelAttribute Ticket ticket){
         ticketService.guardarTicket(ticket);
-        return "panel";
+        /*no se debe retornar panel*/
+        //return "panel";
+        //si no el controller que recarga los tickets pendientes. 
+        return "redirect:/panel";
     }
 }
